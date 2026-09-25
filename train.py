@@ -36,7 +36,7 @@ def run(data_path: Path, output: Path, time_limit: int, preset: str) -> None:
     output.mkdir(parents=True, exist_ok=True)
     data = load_data(data_path)
     train, test = train_test_split(
-        data, test_size=0.2, random_state=42, stratify=data["cardio"]
+        data, test_size=0.2, random_state=0
     )
     predictor = TabularPredictor(
         label="cardio", problem_type="binary", eval_metric="accuracy",
